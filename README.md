@@ -1,1 +1,1 @@
-# Project_1-NextJs
+# NextJs template
