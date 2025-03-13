@@ -3,10 +3,11 @@ import { Layout } from 'antd';
 
 const AdminFooter = () => {
     const { Footer } = Layout;
+
     return (
         <>
             <Footer style={{ textAlign: 'center' }}>
-                Ant Design ©{new Date().getFullYear()} Created by Ant UED
+                Hỏi Dân IT ©{new Date().getFullYear()} Created by @hoidanit
             </Footer>
         </>
     )
