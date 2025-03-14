@@ -1,5 +1,4 @@
 'use client'
-
 import React from 'react';
 import { Button, Col, Divider, Form, Input, message, notification, Row } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
@@ -8,13 +7,12 @@ import { sendRequest } from '@/utils/api';
 import { useRouter } from 'next/navigation';
 
 const Verify = (props: any) => {
-    const {id} = props;
+    const { id } = props;
 
     const router = useRouter()
 
     const onFinish = async (values: any) => {
-        const {_id, code} = values;
-        console.log(">>> check ", values)
+        const { _id, code } = values;
         const res = await sendRequest<IBackendRes<any>>({
             url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/check-code`,
             method: "POST",
@@ -22,13 +20,12 @@ const Verify = (props: any) => {
                 _id, code
             }
         })
-        console.log(">>> check res: ", res)
-        if(res?.data) {
-            message.success("active account complete")
-            router.push(`/auth/login`)
+        if (res?.data) {
+            message.success("Kích hoạt tài khoản thành công.")
+            router.push(`/auth/login`);
         } else {
             notification.error({
-                message: "Register error",
+                message: "Verify error",
                 description: res?.message
             })
         }
@@ -43,7 +40,7 @@ const Verify = (props: any) => {
                     border: "1px solid #ccc",
                     borderRadius: "5px"
                 }}>
-                    <legend>Kich hoat Tài Khoản</legend>
+                    <legend>Kích hoạt tài khoản</legend>
                     <Form
                         name="basic"
                         onFinish={onFinish}
@@ -58,11 +55,9 @@ const Verify = (props: any) => {
                         >
                             <Input disabled />
                         </Form.Item>
-
                         <div>
-                            code has send email register, check email has register please
+                            Mã code đã được gửi tới email đăng ký, vui lòng kiểm tra email.
                         </div>
-
                         <Divider />
 
                         <Form.Item
@@ -77,6 +72,8 @@ const Verify = (props: any) => {
                         >
                             <Input />
                         </Form.Item>
+
+
 
                         <Form.Item
                         >
@@ -94,6 +91,7 @@ const Verify = (props: any) => {
                 </fieldset>
             </Col>
         </Row>
+
     )
 }
 

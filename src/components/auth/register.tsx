@@ -10,7 +10,7 @@ const Register = () => {
     const router = useRouter()
 
     const onFinish = async (values: any) => {
-        const {email, password, name} = values;
+        const { email, password, name } = values;
         const res = await sendRequest<IBackendRes<any>>({
             url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/register`,
             method: "POST",
@@ -18,16 +18,14 @@ const Register = () => {
                 email, password, name
             }
         })
-        
-        if(res?.data) {
-            router.push(`/verify/${res?.data?._id}`)
+        if (res?.data) {
+            router.push(`/verify/${res?.data?._id}`);
         } else {
             notification.error({
                 message: "Register error",
                 description: res?.message
             })
         }
-
     };
 
     return (
@@ -86,7 +84,6 @@ const Register = () => {
                             </Button>
                         </Form.Item>
                     </Form>
-                    
                     <Link href={"/"}><ArrowLeftOutlined /> Quay lại trang chủ</Link>
                     <Divider />
                     <div style={{ textAlign: "center" }}>
@@ -96,6 +93,7 @@ const Register = () => {
                 </fieldset>
             </Col>
         </Row>
+
     )
 }
 
