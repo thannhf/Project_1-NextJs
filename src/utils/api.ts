@@ -1,4 +1,4 @@
-import queryString from 'query-string';
+import queryString from 'querystring'
 
 export const sendRequest = async <T>(props: IRequest) => { //type
     let {
