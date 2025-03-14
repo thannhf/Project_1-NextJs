@@ -86,6 +86,7 @@ const Register = () => {
                             </Button>
                         </Form.Item>
                     </Form>
+                    
                     <Link href={"/"}><ArrowLeftOutlined /> Quay lại trang chủ</Link>
                     <Divider />
                     <div style={{ textAlign: "center" }}>
